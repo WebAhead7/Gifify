@@ -14,6 +14,6 @@ We don't want to know the lyrics of our favourite songs ONLY, we want to dance w
 
 You can find us on github::
 
-.._[Lujain Abd-Ullatif](https://github.com/Lujain-AbdUllatif)
-.._[Nizar Halloun](https://github.com/nizarhalloun)
-..\*[Omkolthom Amara](https://github.com/OmklthomAmara)
+- [Lujain Abd-Ullatif](https://github.com/Lujain-AbdUllatif)
+- [Nizar Halloun](https://github.com/nizarhalloun)
+- [Omkolthom Amara](https://github.com/OmklthomAmara)

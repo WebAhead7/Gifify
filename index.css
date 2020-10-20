@@ -1,1 +1,15 @@
+/* Theme */
+:root {
+    /* Colours */
+    --prim: #182145;
+    --sec: #F1824C;
+}
 
+/* Removing the defaults from the browser */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

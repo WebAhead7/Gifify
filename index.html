@@ -7,22 +7,51 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="searchContainer">
-      <div class="searchBar">
-        <input
-          type="text"
-          class="searchBox"
-          placeholder="Enter your song name"
-        />
-        <button class="searchBtn">Search</button>
+    <!-- Home Page -->
+    <div class="home" id="home">
+      <!-- Navigation Bar -->
+      <div class="nav" id="nav">
+        <div class="logo" id="logo">
+          <h1>LOGO</h1>
+          >
+        </div>
+
+        <div class="navButtons">
+          <button onclick="aboutFunction()">About Us</button>
+          <button onclick="contactFunction()">Contat Us</button>
+        </div>
       </div>
-      <p class="lyrics">heydsdssd dsdsdsd sdsd sd</p>
-      <img
-        class="gif"
-        src="https://media.giphy.com/media/13p77tfexyLtx6/giphy.gif"
-        alt=""
-      />
+
+      <!-- Search Container -->
+      <div class="searchContainer">
+        <div class="searchBar">
+          <input
+            type="text"
+            class="searchBox"
+            placeholder="Enter your song name"
+          />
+          <button class="searchBtn">Search</button>
+        </div>
+        <p class="lyrics">heydsdssd dsdsdsd sdsd sd</p>
+        <img
+          class="gif"
+          src="https://media.giphy.com/media/13p77tfexyLtx6/giphy.gif"
+          alt=""
+        />
+      </div>
     </div>
+
+    <!-- About Us -->
+    <div class="about" id="about">
+      <p>discover our new website</p>
+      <button onclick="aboutReturn()">Return</button>
+    </div>
+    <!-- Contact Us -->
+    <div class="contact" id="contact">
+      <p>CONTACT US !!</p>
+      <button onclick="contactReturn()">Return</button>
+    </div>
+
     <script src="index.js"></script>
   </body>
 </html>

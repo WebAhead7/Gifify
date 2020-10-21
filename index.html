@@ -25,9 +25,10 @@
           <input
             type="text"
             class="searchBox"
+            id="searchBox"
             placeholder="Enter your song name"
           />
-          <button class="searchBtn">Search</button>
+          <button onclick="submitbutton()" class="searchBtn">Search</button>
         </div>
         <div class="loader"></div>
         <p class="lyrics">
@@ -63,6 +64,7 @@
     <!-- Contact Us -->
     <div class="contact" id="contact">
       <div class="nav" id="nav">
+
         <img src="/img/logo.jpg" class="logo" id="logo" />
 
         <button onclick="aboutFunction()" class="navButtons">About Us</button>

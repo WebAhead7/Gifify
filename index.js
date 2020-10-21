@@ -100,3 +100,57 @@ function submitbutton() {
       }, 100);
     });
 }
+
+/*
+ * This function returns song id
+ * @param songName is the song
+ * that we typed in the search box
+ * @return track id
+ */
+function fetchSongId(songName) {
+  let trackId;
+  fetch(
+    'https://cors-anywhere.herokuapp.com/' +
+      'https://api.musixmatch.com/ws/1.1/' +
+      `track.search?apikey=8beb5ebee117dfca301f8444bcc7704c&q=${songName}`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    // if we get a successfull response
+    .then((data) => {
+      trackId = data.message.body.track_list[0].track.track_id;
+      console.log(trackId);
+    })
+
+    // catching errors
+    .catch((err) => console.log(err));
+  return trackId;
+}
+
+function fectchLyrics(trackId) {
+  let lyrics;
+  fetch(
+    'https://cors-anywhere.herokuapp.com/' +
+      'https://api.musixmatch.com/ws/1.1/' +
+      `track.lyrics.get?apikey=8beb5ebee117dfca301f8444bcc7704c&track_id=${trackId}`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(respose.status);
+      }
+      return response.json();
+    })
+    .then(() => (lyrics = data.message.body.lyrics.lyrics_body))
+    .catch((err) => console.log(err));
+  return lyrics;
+}
+
+function getLyrics(songName) {
+  const songId = fetchSongId(songName);
+  const lyrics = fectchLyrics(songId);
+  return lyrics;
+}

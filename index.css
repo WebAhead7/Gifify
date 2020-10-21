@@ -138,3 +138,23 @@ body {
   border: 10px solid;
   border-color: rgba(172, 255, 47, 0.342);
 }
+
+.loader {
+  border: 16px solid #2cd60a00;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  display: none;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

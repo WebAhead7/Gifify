@@ -85,11 +85,13 @@ function submitbutton() {
       const gif = document.getElementsByClassName('gif');
       gif[0].src = embed_url;
 
-      var interval = setInterval(() => {
-        var image = new Image();
-        image.src = embed_url;
-        var isComplete = image.complete;
+      //const lyrics = getLyrics(inputText); //! problem
 
+      var image = new Image();
+      image.src = embed_url;
+
+      var interval = setInterval(() => {
+        var isComplete = image.complete;
         if (isComplete) {
           showSpinner(false);
           clearInterval(interval);

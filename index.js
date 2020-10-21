@@ -1,12 +1,10 @@
-
-
-var homeDiv = document.getElementById("home");
-var aboutDiv=document.getElementById("about");
-var contactDiv= document.getElementById("contact");
-// intial display 
-homeDiv.style.display="block";
-contactDiv.style.display="none";
-aboutDiv.style.display="none";
+var homeDiv = document.getElementById('home');
+var aboutDiv = document.getElementById('about');
+var contactDiv = document.getElementById('contact');
+// intial display
+homeDiv.style.display = 'block';
+contactDiv.style.display = 'none';
+aboutDiv.style.display = 'none';
 
 // about us button function
 function aboutFunction() {
@@ -58,28 +56,21 @@ function contactReturn() {
 }
 /////////////////////
 
-var id_key="OiRmKWWUtNcSOtfRmlVDgYzuRKHSZPsz";
+const idKey = 'OiRmKWWUtNcSOtfRmlVDgYzuRKHSZPsz';
 
-fetch("https://api.giphy.com/v1/gifs/search"+"?api_key="+id_key+"&q=dog").then(data => data.json()).then(data=>console.log(data));
+function submitbutton() {
+  const inputText = document.getElementById('searchBox').value;
 
-
-
-var gif=document.getElementsByClassName("gif");
-var input_text="dog";
-
-function submitbutton(){
-
-  input_text=document.getElementById("searchBox").value;
-  var gifData=fetch("https://api.giphy.com/v1/gifs/search"+"?api_key="+id_key+"&q="+input_text)
-  .then(data => data.json())
-  .then(json=>{
-    var gif_url= json.data[1];
-    console.log(1,gif_url);  
-    gif[0].src= gif_url.images.original.url;
-    console.log(json)});
-  
-
-}  
+  fetch(`https://api.giphy.com/v1/gifs/search?api_key=${idKey}&q=${inputText}`)
+    .then((data) => data.json())
+    .then((json) => {
+      const { data } = json;
+      const embed_url = data[0].embed_url;
+      console.log(embed_url);
+      const gif = document.querySelector('.gif');
+      gif.src = embed_url;
+    });
+}
 
 /*
  * if @param show is true spinner will show
@@ -90,4 +81,3 @@ function showSpinner(show) {
   const spinner = document.querySelector('.loader');
   spinner.style.display = show ? 'block' : 'none';
 }
-

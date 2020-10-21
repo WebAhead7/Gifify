@@ -1,5 +1,4 @@
 
-
 var homeDiv = document.getElementById("home");
 var aboutDiv=document.getElementById("about");
 var contactDiv= document.getElementById("contact");
@@ -66,6 +65,25 @@ function contactReturn(){
   }
 /////////////////////
 
+var id_key="OiRmKWWUtNcSOtfRmlVDgYzuRKHSZPsz";
+
+fetch("https://api.giphy.com/v1/gifs/search"+"?api_key="+id_key+"&q=dog").then(data => data.json()).then(data=>console.log(data));
 
 
 
+var gif=document.getElementsByClassName("gif");
+var input_text="dog";
+
+function submitbutton(){
+
+  input_text=document.getElementById("searchBox").value;
+  var gifData=fetch("https://api.giphy.com/v1/gifs/search"+"?api_key="+id_key+"&q="+input_text)
+  .then(data => data.json())
+  .then(json=>{
+    var gif_url= json.data[1];
+    console.log(1,gif_url);  
+    gif[0].src= gif_url.images.original.url;
+    console.log(json)});
+  
+
+}  

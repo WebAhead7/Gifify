@@ -57,18 +57,21 @@ function contactReturn() {
 /////////////////////
 
 const idKey = 'OiRmKWWUtNcSOtfRmlVDgYzuRKHSZPsz';
+const cors = 'https://cors-proxy.htmldriven.com/?url=';
 
 function submitbutton() {
   const inputText = document.getElementById('searchBox').value;
 
-  fetch(`https://api.giphy.com/v1/gifs/search?api_key=${idKey}&q=${inputText}`)
+  fetch(
+    cors +
+      `https://api.giphy.com/v1/gifs/search?api_key=${idKey}&q=${inputText}`
+  )
     .then((data) => data.json())
     .then((json) => {
       const { data } = json;
       const embed_url = data[0].embed_url;
       console.log(embed_url);
       const gif = document.querySelector('.gif');
-      gif.src = embed_url;
     });
 }
 

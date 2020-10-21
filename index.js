@@ -8,10 +8,10 @@ aboutDiv.style.display = 'none';
 
 // about us button function
 function aboutFunction() {
-  if (homeDiv.style.display === 'none') {
-    homeDiv.style.display = 'block';
+  if (homeDiv.style.display === 'block') {
+    homeDiv.style.display = 'none';
     contactDiv.style.display = 'none';
-    aboutDiv.style.display = 'none';
+    aboutDiv.style.display = 'block';
   } else {
     homeDiv.style.display = 'none';
     contactDiv.style.display = 'none';
@@ -20,9 +20,9 @@ function aboutFunction() {
 }
 // contact us button function
 function contactFunction() {
-  if (homeDiv.style.display === 'none') {
-    homeDiv.style.display = 'block';
-    contactDiv.style.display = 'none';
+  if (homeDiv.style.display === 'block') {
+    homeDiv.style.display = 'none';
+    contactDiv.style.display = 'block';
     aboutDiv.style.display = 'none';
   } else {
     homeDiv.style.display = 'none';
@@ -59,22 +59,6 @@ function contactReturn() {
 const idKey = 'OiRmKWWUtNcSOtfRmlVDgYzuRKHSZPsz';
 const cors = 'https://cors-proxy.htmldriven.com/?url=';
 
-function submitbutton() {
-  const inputText = document.getElementById('searchBox').value;
-
-  fetch(
-    cors +
-      `https://api.giphy.com/v1/gifs/search?api_key=${idKey}&q=${inputText}`
-  )
-    .then((data) => data.json())
-    .then((json) => {
-      const { data } = json;
-      const embed_url = data[0].embed_url;
-      console.log(embed_url);
-      const gif = document.querySelector('.gif');
-    });
-}
-
 /*
  * if @param show is true spinner will show
  * We use this function when we make http
@@ -83,4 +67,36 @@ function submitbutton() {
 function showSpinner(show) {
   const spinner = document.querySelector('.loader');
   spinner.style.display = show ? 'block' : 'none';
+}
+
+function submitbutton() {
+  const inputText = document.getElementById('searchBox').value;
+
+  fetch(
+    'https://api.giphy.com/v1/gifs/search' +
+      '?api_key=' +
+      idKey +
+      '&q=' +
+      inputText
+  )
+    .then((data) => data.json())
+    .then((json) => {
+      const embed_url = json.data[1].images.original.url;
+      const gif = document.getElementsByClassName('gif');
+      gif[0].src = embed_url;
+
+      var interval = setInterval(() => {
+        var image = new Image();
+        image.src = embed_url;
+        var isComplete = image.complete;
+
+        if (isComplete) {
+          showSpinner(false);
+          clearInterval(interval);
+        } else {
+          showSpinner(true);
+        }
+        console.log(isComplete);
+      }, 100);
+    });
 }

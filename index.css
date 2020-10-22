@@ -1,12 +1,16 @@
 /* Theme */
 :root {
   /* Colours */
-  --prim: #182145;
-  --sec: #f1824c;
+  --prim:black;
+  --sec: white;
 }
 
 body {
-  background: #1f294ed2;
+  background-image: url(./img/bg3.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* Removing the defaults from the browser */
@@ -43,7 +47,7 @@ body {
   border: 0px;
   font-size: large;
   font-style: italic;
-  background: #0c29ac6e;
+  background: black;
   color: aliceblue;
   cursor: pointer;
 }
@@ -58,7 +62,7 @@ body {
   position: relative;
   /* padding: 20px; */
   /* background-color: black; */
-  color: white;
+  color: black;
   /* margin: 20px; */
 }
 
@@ -68,7 +72,7 @@ body {
   /* padding: 20px; */
   /* background-color: black; */
 
-  color: white;
+  color: black;
   /* margin: 20px; */
 }
 
@@ -100,8 +104,8 @@ body {
   font-weight: bold;
   outline: none;
   border-style: solid;
-  border-color: rgba(7, 51, 53, 0.582);
-  background: rgba(100, 148, 237, 0.37);
+  border-color : black;
+  background: white;
 }
 .searchBox::placeholder {
   color: rgb(15, 9, 9);
@@ -113,30 +117,35 @@ body {
 
 .searchBtn {
   flex-basis: 20%;
-  background: coral;
+  background: black;
+  color: white;
   cursor: pointer;
 }
 .searchBtn:hover {
   background: rgb(184, 107, 79);
 }
 .searchBtn:active {
-  background: rgb(39, 163, 15);
+  background:transparent;
 }
 
 /* Lyrics */
 .lyrics {
-  width: 100vw;
-  text-align: center;
+  position: relative;
+  width: 80vw;
   font-style: italic;
   font-size: 20px;
-  background: #f1824c;
+  background: black;
+  color: white;
+  opacity: 0.8;
 }
 
 /* GIF */
 .gif {
-  border-radius: 20px;
-  border: 10px solid;
-  border-color: rgba(172, 255, 47, 0.342);
+  position: relative;
+  top: 60px;
+  border-radius: 10px;
+  border: 5px solid;
+  border-color:black;
 }
 
 .loader {
@@ -157,4 +166,42 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.about p{
+  position: relative;
+  top: 30px;
+  font-size: 20px;
+  margin: 40px;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 800;
+  
+}
+.contact p{
+  position: relative;
+  top: 50px;
+  font-size: 50px;
+  font-weight: 100;
+  margin: 15px ;
+}
+.contact ul{
+
+  position: relative;
+  top: 50px;
+  font-size: 30px;
+  margin: 20px;
+}
+.returnbutton{
+
+  position: relative;
+  top: 230px;
+  left: 600px;
+  background-color: var(--prim);
+  padding: 5px;
+  width: 10%;
+  height: 10%;
+  color: rgb(184, 107, 79);
+  font-size: large;
+  border: transparent;
 }
